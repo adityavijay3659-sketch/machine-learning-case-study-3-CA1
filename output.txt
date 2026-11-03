@@ -1,0 +1,45 @@
+   CustomerID  Recency  Frequency  Monetary
+0       12346      326          1  77183.60
+1       12347        2          7   4310.00
+2       12348       75          4   1797.24
+3       12349       19          1   1757.55
+4       12350      310          1    334.40
+         CustomerID      Recency    Frequency       Monetary
+count   4338.000000  4338.000000  4338.000000    4338.000000
+mean   15300.408022    92.536422     4.272015    2054.266459
+std     1721.808492   100.014169     7.697998    8989.230441
+min    12346.000000     1.000000     1.000000       3.750000
+25%    13813.250000    18.000000     1.000000     307.415000
+50%    15299.500000    51.000000     2.000000     674.485000
+75%    16778.750000   142.000000     5.000000    1661.740000
+max    18287.000000   374.000000   209.000000  280206.020000
+CustomerID    0
+Recency       0
+Frequency     0
+Monetary      0
+dtype: int64
+k = 2 silhouette = 0.433
+k = 3 silhouette = 0.337
+k = 4 silhouette = 0.337
+k = 5 silhouette = 0.316
+k = 6 silhouette = 0.313
+k = 7 silhouette = 0.31
+k = 8 silhouette = 0.301
+DBSCAN clusters: 2  noise points: 79
+KMeans silhouette: 0.337
+DBSCAN silhouette (without noise): 0.294
+PCA explained variance: [0.75102042 0.18759201] total: 0.9386124314620145
+        Recency  Frequency  Monetary  Customers
+KMeans                                         
+0          18.1        2.1     551.8        837
+1          12.1       13.7    8074.3        716
+2          71.1        4.1    1802.8       1173
+3         182.5        1.3     343.5       1612
+Cluster 1 : Champions - recent, frequent, big spenders -> loyalty rewards, early access, no discounts needed
+Cluster 2 : Potential loyalists - regular buyers, cooling down -> personalised recommendations, bundles
+Cluster 0 : New customers - bought recently but once or twice -> welcome offer to get the 2nd order
+Cluster 3 : Lost / hibernating - long time no purchase, low spend -> cheap win-back email only
+K-Means forces every customer into a cluster and gives clear segments for marketing.
+DBSCAN finds dense groups and marks unusual customers (very big spenders) as noise,
+which is useful for spotting outliers but the segments are less balanced.
+PCA is used for a quick linear 2D view, t-SNE keeps local neighbours so groups separate better visually.
